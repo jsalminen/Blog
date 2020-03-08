@@ -7,24 +7,46 @@ categories: []
 tags: []
 ---
 
-# Lorem ipsum
 
-Kiky oli kuulemma hyväksi työllisyydelle.  
-päivittääkö tämä ilman että tallentaa
+[Kilpailukykysopimus](https://fi.wikipedia.org/wiki/Kilpailukykysopimus) eli 
+KiKy oli kuulemma hyväksi työllisyydelle. 
 
-Alla hieno kuvaaja.
+[Etlan raportin](https://www.etla.fi/julkaisut/tyoaika-tyollisyys-ja-kilpailukyky/)
+mukaan lorem ipsum...
 
-# Työllisyys
+# Työllisyystilastot
 
-Työllisyystiedot Tilastokeskuksen sivuilta. [Linkki taulukkoon](http://pxnet2.stat.fi/PXWeb/pxweb/fi/StatFin/StatFin__tym__tyti__kk/statfin_tyti_pxt_11ag.px/)
+Työllisyystilastot ovat saatavissa Tilastokeskuksen sivuilta: [Linkki taulukkoon](http://pxnet2.stat.fi/PXWeb/pxweb/fi/StatFin/StatFin__tym__tyti__kk/statfin_tyti_pxt_11ag.px/)
 
-```{r}
+Kentät:
+
+* Kuukausi: Vuosi ja kuukausi
+* Työlliset, 1000 henkilöä
+* Työlliset, 1000 henkilöä, trendi
+* Työllisyysaste, 15-64 vuotiaat, %
+* Työllisyysaste, 15-64 vuotiaat, %, trendi
+
+
+```{r, echo=FALSE}
 # Tilastokeskuksen API url
 px_url <- "http://pxnet2.stat.fi/PXWeb/api/v1/fi/StatFin/tym/tyti/kk/statfin_tyti_pxt_11ag.px"
 
 # JSON-kysely API:a varten
 json_query <- '{
-  "query": [],
+  "query": [
+    {
+      "code": "Tiedot",
+      "selection": {
+        "filter": "item",
+        "values": [
+          "Tyolliset",
+          "tyolliset_trendi",
+          "Tyollisyysaste_15_64",
+          "tyollaste_15_64_trendi"
+        ]
+      }
+    }
+  ],
   "response": {
     "format": "json-stat"
   }
@@ -41,14 +63,14 @@ employment  <- rjstat::fromJSONstat(json_result)[[1]]
 employment <- tidyr::pivot_wider(employment, id_cols = c("Kuukausi"),
                                  names_from = Tiedot, values_from = value)
 
-knitr::kable(head(employment[, c(1, 2, 3, 6, 7)]))
+knitr::kable(head(employment))
 ```
 
 # Kansantalouden suhdanteet
 
-Kansantalouden suhdanteet Findikaattorista. [Linkki aineistoon](https://findikaattori.fi/fi/39)
+Kansantalouden suhdanteet Tilastokeskuksen sivuilta. [Linkki aineistoon](https://findikaattori.fi/fi/39)
 
-```{r}
+```{r, echo=FALSE}
 px_url <- "https://pxnet2.stat.fi:443/PXWeb/api/v1/fi/StatFin/kan/ktkk/statfin_ktkk_pxt_11tf.px"
 
 json_query <- '{
@@ -75,10 +97,148 @@ temp <- httr::POST(px_url, body = json_query, encode = "json")
 json_result <- httr::content(temp, as = 'text')
 
 # Muunnetaan JSON data frameksi
-suhdanne  <- rjstat::fromJSONstat(json_result)[[1]]
-suhdanne <- tidyr::pivot_wider(suhdanne, id_cols = c("Kuukausi"),
-                                 names_from = Tiedot, values_from = value)
+economy  <- rjstat::fromJSONstat(json_result)[[1]]
+economy <- tidyr::pivot_wider(economy, id_cols = c("Kuukausi"),
+                              names_from = Tiedot, values_from = value)
 
-knitr::kable(head(suhdanne))
+knitr::kable(head(economy))
 ```
 
+
+# Editointia
+
+```{r, warning=FALSE, message=FALSE, echo=FALSE}
+library(tidyverse)
+library(lubridate)
+theme_set(theme_bw(15))
+
+names(employment) <- c("YearMonth",
+                       "Employed",
+                       "EmployedTrend",
+                       "Employment",
+                       "EmploymentTrend")
+
+names(economy) <- c("YearMonth",
+                    "EconomyIndex")
+
+employment <- employment %>% 
+  filter(YearMonth >= 2010) %>% 
+  filter(YearMonth < 2020)
+
+economy <- economy %>% 
+  filter(YearMonth >= 2010) %>% 
+  filter(YearMonth < 2020)
+
+employment$Date <- lubridate::ymd(employment$YearMonth, truncated = 1)
+economy$Date <- lubridate::ymd(economy$YearMonth, truncated = 1)
+```
+
+
+```{r, echo=FALSE}
+ggplot(employment, aes(Date, EmployedTrend)) + geom_line(aes(group = 1))
+```
+
+
+```{r, echo=FALSE}
+ggplot(employment, aes(Date, EmploymentTrend)) + geom_line(aes(group = 1))
+```
+
+
+```{r, echo=FALSE}
+ggplot(economy, aes(Date, EconomyIndex)) + geom_line(aes(group = 1))
+```
+
+
+```{r, echo=FALSE}
+EmploymentTrend2010 <- employment %>% 
+  filter(Date == '2010-05-01') %>% 
+  pull(EmploymentTrend)
+
+EmployedTrend2010 <- employment %>% 
+  filter(Date == '2010-05-01') %>% 
+  pull(EmployedTrend)
+
+employment$EmployedTrendIndex <- employment$EmployedTrend / EmployedTrend2010 * 100
+employment$EmploymentTrendIndex <- employment$EmploymentTrend / EmploymentTrend2010 * 100
+
+
+combined_data <- economy %>% 
+  dplyr::left_join(employment, by = c("Date" = "Date")) %>% 
+  select(Date, 
+         EconomyIndex, 
+         EmployedTrend, 
+         EmployedTrendIndex,
+         EmploymentTrend, 
+         EmploymentTrendIndex)
+
+combined_data_long <- tidyr::pivot_longer(combined_data, 
+                                          cols = -Date)
+
+combined_data_long %>% 
+  filter(name %in% c("EconomyIndex",
+                     "EmploymentTrendIndex")) %>% 
+  ggplot(aes(Date, value, color = name)) + 
+  geom_line() +
+  theme(legend.position = 'bottom') +
+  geom_vline(xintercept = lubridate::ymd('2015-05-29'), color = 'grey') +
+  geom_vline(xintercept = lubridate::ymd('2017-01-01'), color = 'grey') +
+  geom_vline(xintercept = lubridate::ymd('2018-01-01'), color = 'grey') +
+  scale_color_manual(values = c("blue", "red")) +
+  xlab("Aika") + 
+  ylab("Indeksi") +
+  annotate("text", label = "Sipilän hallitus\n29.5.2015", 
+           x = lubridate::ymd('2015-05-20'), y = 108, hjust = 1) +
+  annotate("text", label = "KiKy\n1.1.2017", 
+           x = lubridate::ymd('2016-12-21'), y = 108, hjust = 1) +
+  annotate("text", label = "Aktiivimalli\n1.1.2018", 
+           x = lubridate::ymd('2018-01-10'), y = 100, hjust = 0)
+
+
+```
+
+```{r}
+cor(combined_data$EconomyIndex, combined_data$EmploymentTrendIndex, 
+    use = "complete.obs")
+```
+
+
+```{r, warning=FALSE, message=FALSE, echo=FALSE}
+economy$DateMoved <- economy$Date %m+% months(7) 
+
+combined_data <- economy %>% 
+  dplyr::left_join(employment, by = c("DateMoved" = "Date")) %>% 
+  select(Date, 
+         EconomyIndex, 
+         EmployedTrend, 
+         EmployedTrendIndex,
+         EmploymentTrend, 
+         EmploymentTrendIndex)
+
+combined_data_long <- tidyr::pivot_longer(combined_data, 
+                                          cols = -Date)
+
+combined_data_long %>% 
+  filter(name %in% c("EconomyIndex",
+                     "EmploymentTrendIndex")) %>% 
+  ggplot(aes(Date, value, color = name)) + 
+  geom_line() +
+  theme(legend.position = 'bottom') +
+  geom_vline(xintercept = lubridate::ymd('2015-05-29'), color = 'grey') +
+  geom_vline(xintercept = lubridate::ymd('2017-01-01'), color = 'grey') +
+  geom_vline(xintercept = lubridate::ymd('2018-01-01'), color = 'grey') +
+  scale_color_manual(values = c("blue", "red")) +
+  xlab("Aika") + 
+  ylab("Indeksi") +
+  annotate("text", label = "Sipilän hallitus\n29.5.2015", 
+           x = lubridate::ymd('2015-05-20'), y = 108, hjust = 1) +
+  annotate("text", label = "KiKy\n1.1.2017", 
+           x = lubridate::ymd('2016-12-21'), y = 108, hjust = 1) +
+  annotate("text", label = "Aktiivimalli\n1.1.2018", 
+           x = lubridate::ymd('2018-01-10'), y = 100, hjust = 0)
+
+```
+
+```{r}
+cor(combined_data$EconomyIndex, combined_data$EmploymentTrendIndex, 
+    use = "complete.obs")
+```
