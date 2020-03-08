@@ -1,0 +1,84 @@
+---
+title: Kiky ja työllisyys
+author: Juho Salminen
+date: '2020-03-08'
+slug: test-post
+categories: []
+tags: []
+---
+
+# Lorem ipsum
+
+Kiky oli kuulemma hyväksi työllisyydelle.  
+päivittääkö tämä ilman että tallentaa
+
+Alla hieno kuvaaja.
+
+# Työllisyys
+
+Työllisyystiedot Tilastokeskuksen sivuilta. [Linkki taulukkoon](http://pxnet2.stat.fi/PXWeb/pxweb/fi/StatFin/StatFin__tym__tyti__kk/statfin_tyti_pxt_11ag.px/)
+
+```{r}
+# Tilastokeskuksen API url
+px_url <- "http://pxnet2.stat.fi/PXWeb/api/v1/fi/StatFin/tym/tyti/kk/statfin_tyti_pxt_11ag.px"
+
+# JSON-kysely API:a varten
+json_query <- '{
+  "query": [],
+  "response": {
+    "format": "json-stat"
+  }
+}'
+
+# Haetaan tiedot API:n kautta
+temp <- httr::POST(px_url, body = json_query, encode = "json")
+
+# Poimitaan JSON-muotoinen sisältö API:n vastauksesta
+json_result <- httr::content(temp, as = 'text')
+
+# Muunnetaan JSON data frameksi
+employment  <- rjstat::fromJSONstat(json_result)[[1]]
+employment <- tidyr::pivot_wider(employment, id_cols = c("Kuukausi"),
+                                 names_from = Tiedot, values_from = value)
+
+knitr::kable(head(employment[, c(1, 2, 3, 6, 7)]))
+```
+
+# Kansantalouden suhdanteet
+
+Kansantalouden suhdanteet Findikaattorista. [Linkki aineistoon](https://findikaattori.fi/fi/39)
+
+```{r}
+px_url <- "https://pxnet2.stat.fi:443/PXWeb/api/v1/fi/StatFin/kan/ktkk/statfin_ktkk_pxt_11tf.px"
+
+json_query <- '{
+  "query": [
+    {
+      "code": "Tiedot",
+      "selection": {
+        "filter": "item",
+        "values": [
+          "ind_kausit_2010"
+        ]
+      }
+    }
+  ],
+  "response": {
+    "format": "json-stat"
+  }
+}'
+
+# Haetaan tiedot API:n kautta
+temp <- httr::POST(px_url, body = json_query, encode = "json")
+
+# Poimitaan JSON-muotoinen sisältö API:n vastauksesta
+json_result <- httr::content(temp, as = 'text')
+
+# Muunnetaan JSON data frameksi
+suhdanne  <- rjstat::fromJSONstat(json_result)[[1]]
+suhdanne <- tidyr::pivot_wider(suhdanne, id_cols = c("Kuukausi"),
+                                 names_from = Tiedot, values_from = value)
+
+knitr::kable(head(suhdanne))
+```
+
