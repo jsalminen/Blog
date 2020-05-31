@@ -1,0 +1,135 @@
+---
+title: Kiky ja työllisyys
+author: Juho Salminen
+date: '2020-03-08'
+slug: test-post
+categories: []
+tags: []
+---
+
+
+
+<p><a href="https://fi.wikipedia.org/wiki/Kilpailukykysopimus">Kilpailukykysopimus</a> eli
+KiKy oli kuulemma hyväksi työllisyydelle.</p>
+<p><a href="https://www.etla.fi/julkaisut/tyoaika-tyollisyys-ja-kilpailukyky/">Etlan raportin</a>
+mukaan lorem ipsum…</p>
+<div id="työllisyystilastot" class="section level1">
+<h1>Työllisyystilastot</h1>
+<p>Työllisyystilastot ovat saatavissa Tilastokeskuksen sivuilta: <a href="http://pxnet2.stat.fi/PXWeb/pxweb/fi/StatFin/StatFin__tym__tyti__kk/statfin_tyti_pxt_11ag.px/">Linkki taulukkoon</a></p>
+<p>Kentät:</p>
+<ul>
+<li>Kuukausi: Vuosi ja kuukausi</li>
+<li>Työlliset, 1000 henkilöä</li>
+<li>Työlliset, 1000 henkilöä, trendi</li>
+<li>Työllisyysaste, 15-64 vuotiaat, %</li>
+<li>Työllisyysaste, 15-64 vuotiaat, %, trendi</li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Kuukausi</th>
+<th align="right">Työlliset, 1000 henkilöä</th>
+<th align="right">Työlliset, 1000 henkilöä, trendi</th>
+<th align="right">Työllisyysaste, 15-64-vuotiaat, %</th>
+<th align="right">Työllisyysaste, 15-64-vuotiaat, %, trendi</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">2010M04</td>
+<td align="right">2417</td>
+<td align="right">2444</td>
+<td align="right">66.9</td>
+<td align="right">67.7</td>
+</tr>
+<tr class="even">
+<td align="left">2010M05</td>
+<td align="right">2482</td>
+<td align="right">2447</td>
+<td align="right">68.6</td>
+<td align="right">67.7</td>
+</tr>
+<tr class="odd">
+<td align="left">2010M06</td>
+<td align="right">2557</td>
+<td align="right">2448</td>
+<td align="right">70.9</td>
+<td align="right">67.7</td>
+</tr>
+<tr class="even">
+<td align="left">2010M07</td>
+<td align="right">2549</td>
+<td align="right">2451</td>
+<td align="right">70.6</td>
+<td align="right">67.8</td>
+</tr>
+<tr class="odd">
+<td align="left">2010M08</td>
+<td align="right">2492</td>
+<td align="right">2453</td>
+<td align="right">68.8</td>
+<td align="right">67.9</td>
+</tr>
+<tr class="even">
+<td align="left">2010M09</td>
+<td align="right">2430</td>
+<td align="right">2455</td>
+<td align="right">67.3</td>
+<td align="right">67.9</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="kansantalouden-suhdanteet" class="section level1">
+<h1>Kansantalouden suhdanteet</h1>
+<p>Kansantalouden suhdanteet Tilastokeskuksen sivuilta. <a href="https://findikaattori.fi/fi/39">Linkki aineistoon</a></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Kuukausi</th>
+<th align="right">Kausitasoitettu ja työpäiväkorjattu indeksisarja, 2010=100</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">1995M01</td>
+<td align="right">64.63</td>
+</tr>
+<tr class="even">
+<td align="left">1995M02</td>
+<td align="right">64.77</td>
+</tr>
+<tr class="odd">
+<td align="left">1995M03</td>
+<td align="right">65.25</td>
+</tr>
+<tr class="even">
+<td align="left">1995M04</td>
+<td align="right">67.14</td>
+</tr>
+<tr class="odd">
+<td align="left">1995M05</td>
+<td align="right">66.05</td>
+</tr>
+<tr class="even">
+<td align="left">1995M06</td>
+<td align="right">66.74</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="editointia" class="section level1">
+<h1>Editointia</h1>
+<p><img src="/post/2020-03-08-test-post_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="/post/2020-03-08-test-post_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="/post/2020-03-08-test-post_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<pre><code>## Warning: Removed 3 row(s) containing missing values (geom_path).</code></pre>
+<p><img src="/post/2020-03-08-test-post_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<pre class="r"><code>cor(combined_data$EconomyIndex, combined_data$EmploymentTrendIndex, 
+    use = &quot;complete.obs&quot;)</code></pre>
+<pre><code>## [1] 0.884448</code></pre>
+<p><img src="/post/2020-03-08-test-post_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<pre class="r"><code>cor(combined_data$EconomyIndex, combined_data$EmploymentTrendIndex, 
+    use = &quot;complete.obs&quot;)</code></pre>
+<pre><code>## [1] 0.9435552</code></pre>
+</div>

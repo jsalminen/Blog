@@ -1,0 +1,121 @@
+---
+title: Review Review
+author: Juho Salminen
+date: '2020-05-31'
+slug: review-review
+categories: []
+tags: []
+---
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+library(tidyverse)
+theme_set(theme_bw(15))
+
+# Load data from Google Sheet
+
+result_url <- "https://docs.google.com/spreadsheets/d/e/2PACX-1vRvEXs2aAdWV0Ao7K47imoxrbQw4tjIETwIi_244NWvnYxcVn66E_kB8N1iq82iZA/pub?gid=686859028&single=true&output=csv"
+
+citations_url <- "https://docs.google.com/spreadsheets/d/e/2PACX-1vRvEXs2aAdWV0Ao7K47imoxrbQw4tjIETwIi_244NWvnYxcVn66E_kB8N1iq82iZA/pub?gid=1611963192&single=true&output=csv"
+
+results <- readr::read_csv(result_url)
+citations <- readr::read_csv(citations_url)
+
+# Fix column names and clean data
+names(results) <- make.names(names(results), unique = TRUE)
+results <- results %>% 
+  replace_na(list(Exposure = "",
+                  Type = ""))
+
+```
+
+
+THL julkaisi [selvityksen väestön kasvosuojusten käytöstä COVID-19-epidemian leviämisen ehkäisyssä](http://urn.fi/URN:ISBN:978-952-00-5421-2). Osana selvitystä Summaryx Oy toteutti järjestelmällisen kirjallisuuskatsauksen, jonka johtopäätösten mukaan:
+
+*"Kodin ulkopuolella käytettävien kasvosuojusten vaikutus pisaravälitteisten hengitystieinfektioiden leviämiseen väestössä on vähäinen tai olematon."*
+
+ja
+
+*"Jos toimenpiteen vaikutuksista ei ole näyttöä, ei se välttämättä merkitse, että toimenpide ei ole vaikuttava. Kasvosuojusten vaikuttavuutta on kuitenkin tutkittu tuhansilla ihmisillä, joten selvä suojavaikutus olisi todennäköisesti tullut tutkimuksissa esiin."*
+
+Johtopäätökset ovat ristiriidassa monien maiden käytäntöjen ([THL:n selvitys](http://urn.fi/URN:ISBN:978-952-00-5421-2) s. 48) sekä useiden järjestöjen ([THL:n selvitys](http://urn.fi/URN:ISBN:978-952-00-5421-2) s. 23) ja [vaikutusvaltaisten tutkijoiden](https://masks4all.co/letter-over-100-prominent-health-experts-call-for-cloth-mask-requirements/) suositusten kanssa. Herää kysymys mistä ero johtuu. Kysymys on tärkeä, sillä [Valtioneuvoston periaatepäätöksen](https://valtioneuvosto.fi/paatokset/paatos?decisionId=0900908f806a9de2) perusteella tehty selvitys todennäköisesti ohjaa poliittista päätöksentekoa koronakriisin hallinnassa.
+
+## Vaillinainen kuva kasvosuojien hyödyistä?
+
+Valtioneuvoston periaatepäätöksen tehtävänannon mukaan Sosiaali- ja terveysministeriö *"teettää tutkimusperusteisen selvityksen kansalaisten kasvomaskien käyttämisen tarpeesta"*.
+
+Kasvosuojat voivat vaikuttaa hengitystieinfektioiden leviämiseen väestössä ainakin:
+
+1. Estämällä taudinaiheuttajien leviämistä viruksen kantajasta ympäristöön (ns. source control)
+2. Suojelemalla kasvosuojan käyttäjää taudinaiheuttajilta
+
+Oireettomien kantajien tartuttaman hengitystieinfektion hallinnassa hengitysilman mukana kulkeutuvien taudinaiheuttajien leviämisen estämisen oletetaan olevan tehokas keino epidemian hallintaan ([esim. Prather ym. 2020](https://science.sciencemag.org/content/early/2020/05/27/science.abc6197.full)). Kirjallisuuskatsauksessa näitä suojamekanismeja ei kuitenkaan eroteltu toisistaan (liite 1, sivu 2):
+
+*"Kaikissa kuudessa satunnaistetussa tutkimuksessa kasvosuojusten käyttäjille tarjottiin muitakin suojatoimia, kuten hygieniaohjeita, käsihuuhdetta tai kasvosuojusten hävittämiseen tarkoitettuja suojapusseja. Tutkimuksissa käytettiin kaupallisia kirurgisia kasvosuojaimia, yhdessä suojustyyppiä ei kuvattu. Kasvosuojusten käytön toteutuminen vaihteli paljon tutkimuksesta toiseen. Neljä tutkimusta raportoi kasvosuojusten vaikutuksen hengitystieinfektion tarttuvuuteen ja yhdestä se voitiin laskea annettujen tietojen perusteella. Alkuperäistutkimuksista kahdessa tutkittiin Yhdysvalloissa asuntoloissa asuvia yliopisto-opiskelijoita ja kolmessa Mekkaan matkustaneita pyhiinvaeltajia. Neljässä tutkimuksissa kasvosuojus ei estänyt tartuntoja; viidennen tutkimuksen pienessä, valikoituneessa alaryhmässä käyttö esti tartuntoja jonkin verran."*
+
+*"Viidessä kahdeksasta järjestelmällisestä katsauksesta ei löydetty näyttöä siitä, että kasvosuojusten käyttö hengitystieinfektioissa auttaisi tartuntalähteen hallinnassa tai terveiden henkilöiden altistumisen ehkäisyssä. Kolme katsausta oli varovaisen myönteisiä; niistä yksi koski pyhiinvaeltajia Mekassa ja toisen katsauksen suurin tutkimus oli luuydinsiirron saaneista potilaista sairaalassa. Kolmannessa myönteinen tulos perustui aineiston valikoivaan analyysiin. Kolmea katsauksista ei vielä ole julkaistu vertaisarvioituna. Yhdessä oli laskuvirhe ja toisessa tuloksia oli valikoitu."*
+
+Miksi siis selvityksen johtopäätökset eroavat maailmalla näennäisesti vallitsevasta konsensuksesta maskien hyödyllisyydestä hengitystieinfektioiden leviämiseen rajoittamisessa? Mikäli kirjallisuuskatsaukseen valikoitui pääasiassa tutkimuksia, joissa tutkittiin kasvosuojien käyttäjälle tarjoamaa suojaa, voivat johtopäätökset perustua vaillinaiseen kuvaan ilmiöstä. Toinen näkökulma, jota kirjallisuuskatsauksessa ei huomioitu on altistuksen kesto. Riski tartuntaan oletettavasti kasvaa altistuksen pidentyessä, koska tartunnan tarvitsee tapahtua vain kerran, mutta suojien täytyy toimia joka kerta. Koska *"Raportin tavoitteena on antaa tutkimustietoon perustuvaa tukea päätöksiin kasvosuojusten käytöstä julkisissa tiloissa COVID-19-epidemian aikana."* (Liite 1, sivu 5), voi altistuksen kesto voi olla merkittävä muuttuja kasvosuojien hyödyllisyyttä arvioitaessa. Asian selvittämiseksi kävin lävitse kaikki kirjallisuuskatsaukseen valitut tutkimukset, sekä mukaan valituissa kirjallisuuskatsauksissa mainitut kasvosuojia käsittelevät alkuperäiset tutkimukset. Poimin tutkimuksista seuraavat tiedot:
+
+* Linkki tutkimukseen
+* Tutkimuksen tyyppi
+* Selvitettiinkö tutkimuksessa kasvosuojien toimivuutta taudin kantajan käyttämänä (source control)
+* Altistuksen kesto, mikäli tutkittiin kasvosuojia taudin kantajilla
+* Tutkimuksen kohderyhmä
+* Interventio
+* Tutkimuksessa käytetyt mittarit
+* Tulokset
+
+[Tulokset taulukoituna Google Docsissa.](https://drive.google.com/file/d/1vo0uhblUJPmTfXNd1pwja5WAc1toB2EN/view?usp=sharing)
+
+## Toinen väliotsikko
+
+Kirjallisuuskatsauksen rajauksista johtuen suurin osa mukaan hyväksytyistä tutkimuksista ja kirjallisuuskatsauksista selvitti kasvosuojusten tarjoamaa suojaa kasvosuojusten käyttäjille. Painopiste oli sama myös muissa kirjallisuuskatsauksissa mainituissa tutkimuksissa. 
+
+```{r, echo=FALSE}
+result_summary <- results %>% 
+  group_by(Included, Source.control) %>% 
+  tally() %>% 
+  drop_na() %>% 
+  arrange(desc(Included), desc(Source.control))
+
+ggplot(result_summary, aes(Source.control, n, fill = Included)) + 
+  geom_bar(stat = "identity", position = "dodge") + 
+  xlab("Source control investigated") + 
+  ylab("Count") + 
+  scale_fill_discrete(name = "Included in review")
+
+#knitr::kable(result_summary)
+```
+
+Tutkimukset, joissa käsiteltiin kasvosuojia sairastuneen kantajan käyttämänä toteutettiin enimmäkseen pitkäaikaisessa altistuksessa, useinmiten joko kodissa tai pyhiinvaelluksella. Pyhiinvaelluksella toteutettujen tutkimusten ympäristöä voidaan pitää lisäksi pitää kodinomaisena, sillä niissä osallistujat nukkuivat lähellä toisiaan samoissa teltoissa. 
+
+```{r, echo=FALSE}
+source_control <- results %>% 
+  filter(Source.control == "Yes" |
+           Source.control == "Maybe") %>% 
+  select(Paper,
+         Included,
+         Type,
+         Group,
+         Exposure)
+
+knitr::kable(source_control)
+```
+
+Kaksi tutkimusta lyhytaikaisessa altistuksessa + kasvosuoja tartunnankantajalla. Molemmat erittäin merkittäviä tilastollisesti. Ohessa linkit ja yhteenvedot. Kumpikin rajautui ulos kirjallisuuskatsauksesta.
+
+Vain yksi selvitykseen hyväksytyistä järjestelmällisistä katsauksista (WHO) mainitsi tutkimuksen, jossa selvitettiin maskien toimivuutta viruksen leviämisen rajoittamisessa infektoituneella henkilöllä lyhytaikaisessa altistuksessa. Tutkimuksessa sekä kirurginen maski että N95-maski tarjosivat virusten kasvualustalle 100 % suojan 5 ysköksen aikana levinneiltä viruksilta. Tämä tutkimus rajattiin kuitenkin laboratoriotutkimuksena pois selvityksestä.
+
+Mekaanisen suojan (käyttäjä ja source control) lisäksi maskien käyttö voi vaikuttaa epidemian leviämiseen myös mm. psykologisten vaikutusten kautta. Maskien laaja käyttö yhteiskunnassa voisi pitää yllä tietoisuutta pandemian vaaroista, ja näin vaikuttaa käyttäytymisen muutosten kautta epidemian kulkuun. Tämä vaikutus näkyisi luultavasti vain populaation tasolla, ei välttämättä pienessä tutkimusotoksessa.
+
+## Johtopäätökset
+
+Suomessa vallitsevan COVID-19 -tilanteen kannalta oleellinen kysymys on olisiko maskien laajasta käytöstä hyötyä epidemian estämisessä lyhytaikaisessa altistuksessa, esim. kaupassa tai julkisessa liikenteessä. Tutkimukset, joissa selvitetään maskin suojaa käyttäjälle eivät vastaa tähän kysymykseen, koska oletettu suojamekanismi olisi pääasiassa taudinaiheuttajien leviämisen estäminen (source control) (lähde). Myöskään tutkimukset, joissa altistus on ollut pitkäaikaista, eivät ole vertailukelpoisia. Tartunnan tarvitsee tapahtua vain kerran, ja pitkäaikaisen altistuksen aikana todennäköisyys, että suojavälineet eivät petä ainakin kerran, laskee ajan kuluessa. Ts. viettämällä useita vuorokausia lähikontaktissa infektoituneen henkilön kanssa (koti tai jaettu pyhiinvaellusteltta) suojauksen pettäminen on odotettavissa esim. ruokailun yhteydessä. Lyhytaikaisessa altistuksessa sitä vastoin maskia voidaan pitää oikeaoppisesti päällä koko altistuksen ajan.
+
+Kirjallisuuskatsaus ei sisällä tietoa source control vaikutuksesta yleensä. Mukaan valikoituneet kirjallisuuskatsaukset kattavat hieman enemmän, mutta pääasiassa pitkäaikaisessa altistuksessa. Valtioneuvoston kannalta Kiinnostavin asetelma eli source control lyhytaikaisessa altistuksessa ei osunut katsauksen scopeen. Eikä muita vaikutuksia tutkivia tutkimuksia.
+
+Lyhytaikasta altistuta ja source controllia: molemmat tulokset tilastollisesti erittäin merkittäviä.
+
+Näin ollen selvityksen keskeinen johtopäätös on harhainen. Selvitykseen otettujen tutkimusten perusteella ei voida todeta, että "Kodin ulkopuolella käytettävien kasvosuojusten vaikutus pisaravälitteisten hengitystieinfektioiden leviämiseen väestössä on vähäinen tai olematon". Selvitykseen valikoituneen kirjallisuuden perusteella oikeampi johtopäätös olisi:
+
+**"Kodin ulkopuolella käytettävien kasvosuojusten vaikutus kasvosuojuksen käyttäjän alttiuteen saada pisaravälitteisten hengitystieinfektio on vähäinen tai olematon. Jos toimenpiteen vaikutuksista ei ole näyttöä, ei se välttämättä merkitse, että toimenpide ei ole vaikuttava. Kasvosuojusten vaikuttavuutta on tutkittu tuhansilla ihmisillä, mutta selvitykseen valikoituneessa kirjallisuudessa ei tutkittu source control -vaikutusta lyhytaikaisessa altistuksessa joka on tehtävänannon kannalta oleellisin, joten selväkään (käsillä olevan päätöksentekotilanteen kannalta relevantti) suojavaikutus ei välttämättä ole tullut tutkimuksissa esiin."**
