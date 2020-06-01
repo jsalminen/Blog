@@ -67,7 +67,7 @@ Asian selvittämiseksi kävin lävitse kaikki kirjallisuuskatsaukseen valitut tu
 
 [Tulokset taulukoituna Google Docsissa.](https://drive.google.com/file/d/1vo0uhblUJPmTfXNd1pwja5WAc1toB2EN/view?usp=sharing)
 
-## Tulokset
+## Tutkimusten niputtaminen piilottaa vaikutukset
 
 Kirjallisuuskatsauksen rajauksista johtuen suurin osa mukaan hyväksytyistä tutkimuksista ja kirjallisuuskatsauksista selvitti kasvosuojusten tarjoamaa suojaa kasvosuojusten käyttäjille. Painopiste oli sama myös muissa kirjallisuuskatsauksissa mainituissa tutkimuksissa. 
 
@@ -105,7 +105,7 @@ Vain kahdessa tutkimuksessa oli tutkittu kasvosuojien käyttöä tartunnankantaj
 
 Mekaanisen suojan lisäksi kasvosuojien käyttö voisi vaikuttaa epidemian leviämiseen myös muiden, esimerkiksi psykologisten, vaikutusten kautta. Maskien laaja käyttö yhteiskunnassa voisi pitää yllä tietoisuutta pandemian vaaroista, ja näin vaikuttaa käyttäytymisen muutosten kautta epidemian kulkuun. Tämän kaltaiset vaikutukset tuskin tulisivat näkyviin kirjallisuuskatsauksessa käsiteltyjen tutkimusten tutkimusotteella, sillä laajat muutokset käyttäytymisessä todennäköisesti olisivat vaikuttaneet sekä tutkimus- että kontrolliryhmiin.
 
-## Johtopäätökset
+## Harhaiset johtopäätökset
 
 Suomessa vallitsevan COVID-19 -tilanteen kannalta oleellinen kysymys on, onko kasvosuojien laajasta käytöstä hyötyä tartuntojen estämisessä lyhytaikaisessa altistuksessa. Tällaisia altistustilanteita ovat esimerkiksi kaupassa käynti ja julkisen liikenteen käyttö. Tutkimukset, joissa selvitetään kasvosuojainten hyötyjä pelkästään suojan käyttäjälle eivät pysty vastaamaan tähän kysymykseen, koska oletettu vaikutusmekanismi on pääasiassa taudinaiheuttajien leviämisen estäminen (source control). Myöskään tutkimukset, joissa altistus on ollut pitkäaikaista, eivät ole vertailukelpoisia. Tartunnan tarvitsee tapahtua vain kerran, ja pitkäaikaisen altistuksen aikana todennäköisyys, että suojavälineet eivät petä ainakin kerran, laskee ajan kuluessa. Viettämällä useita vuorokausia lähikontaktissa infektoituneen henkilön kanssa (koti tai jaettu pyhiinvaellusteltta) suojauksen pettäminen on odotettavissa esim. ruokailun yhteydessä. Lyhytaikaisessa altistuksessa sitä vastoin maskia voidaan pitää oikeaoppisesti päällä koko altistuksen ajan.
 
