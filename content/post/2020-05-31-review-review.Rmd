@@ -1,5 +1,5 @@
 ---
-title: Arvio THL:n kirjallisuuskatsauksesta
+title: Arvio STM:n kirjallisuuskatsauksesta
 author: Juho Salminen
 date: '2020-05-31'
 slug: review-review
@@ -29,7 +29,7 @@ results <- results %>%
 ```
 
 
-THL julkaisi [selvityksen väestön kasvosuojusten käytöstä COVID-19-epidemian leviämisen ehkäisyssä](http://urn.fi/URN:ISBN:978-952-00-5421-2). Osana selvitystä Summaryx Oy toteutti järjestelmällisen kirjallisuuskatsauksen, jonka johtopäätösten mukaan:
+STM julkaisi [selvityksen väestön kasvosuojusten käytöstä COVID-19-epidemian leviämisen ehkäisyssä](http://urn.fi/URN:ISBN:978-952-00-5421-2). Osana selvitystä Summaryx Oy toteutti järjestelmällisen kirjallisuuskatsauksen, jonka johtopäätösten mukaan:
 
 *"Kodin ulkopuolella käytettävien kasvosuojusten vaikutus pisaravälitteisten hengitystieinfektioiden leviämiseen väestössä on vähäinen tai olematon."* 
 
@@ -37,7 +37,7 @@ ja
 
 *"Jos toimenpiteen vaikutuksista ei ole näyttöä, ei se välttämättä merkitse, että toimenpide ei ole vaikuttava. Kasvosuojusten vaikuttavuutta on kuitenkin tutkittu tuhansilla ihmisillä, joten selvä suojavaikutus olisi todennäköisesti tullut tutkimuksissa esiin."*
 
-Johtopäätökset ovat ristiriidassa monien maiden käytäntöjen ([THL:n selvitys](http://urn.fi/URN:ISBN:978-952-00-5421-2) s. 48) sekä useiden järjestöjen ([THL:n selvitys](http://urn.fi/URN:ISBN:978-952-00-5421-2) s. 23) ja [vaikutusvaltaisten tutkijoiden](https://masks4all.co/letter-over-100-prominent-health-experts-call-for-cloth-mask-requirements/) suositusten kanssa. Herää kysymys mistä ero johtuu. Kysymys on tärkeä, sillä [Valtioneuvoston periaatepäätöksen](https://valtioneuvosto.fi/paatokset/paatos?decisionId=0900908f806a9de2) perusteella tehty selvitys todennäköisesti ohjaa poliittista päätöksentekoa koronakriisin hallinnassa.
+Johtopäätökset ovat ristiriidassa monien maiden käytäntöjen ([STM:n selvitys](http://urn.fi/URN:ISBN:978-952-00-5421-2) s. 48) sekä useiden järjestöjen ([STM:n selvitys](http://urn.fi/URN:ISBN:978-952-00-5421-2) s. 23) ja [vaikutusvaltaisten tutkijoiden](https://masks4all.co/letter-over-100-prominent-health-experts-call-for-cloth-mask-requirements/) suositusten kanssa. Herää kysymys mistä ero johtuu. Kysymys on tärkeä, sillä [Valtioneuvoston periaatepäätöksen](https://valtioneuvosto.fi/paatokset/paatos?decisionId=0900908f806a9de2) perusteella tehty selvitys todennäköisesti ohjaa poliittista päätöksentekoa koronakriisin hallinnassa.
 
 ## Vaillinainen kuva kasvosuojien hyödyistä?
 
@@ -101,7 +101,7 @@ source_control <- results %>%
 knitr::kable(source_control)
 ```
 
-Vain kahdessa tutkimuksessa oli tutkittu kasvosuojien käyttöä tartunnankantajalla lyhytaikaisessa altistuksessa: [Johnson 2009](https://pubmed.ncbi.nlm.nih.gov/19522650/) ja [Sung 2016](https://pubmed.ncbi.nlm.nih.gov/27481873/). Johnson 2009 tutki kirurgisen kasvosuojan ja N95-maskin toimivuutta infektoituneen potilaan tuottamisen virusten leviämisen estämisessä laboratoriossa. Kumpikin kasvosuojamalli tarjosi petrimaljan kasvualustalle 100 % suojan 5 ysköksen aikana levinneiltä viruksilta. Sung 2016 tutki sekä työntekijöillä että vierailijoilla pakollisten kasvosuojien vaikutusta kantasolusiirteen saaneiden potilaiden alttiuteen saada hengitystieinfektioita. Kasvosuojattoman jakson (2003-2009) tartuntamääriä verrattiin kasvosuojallisen jakson (2010-2014) tartuntamääriin. Infektioiden määrä laski tilastollisesti merkittävästi kasvosuojia käytettäessä. Vertailukohteena käytetyllä toisella sairaalan osastolla ei havaittu muutosta tartuntamäärissä jakson aikana. Kumpikin näistä tutkimuksista rajautui pois THL:n kirjallisuuskatsauksesta.
+Vain kahdessa tutkimuksessa oli tutkittu kasvosuojien käyttöä tartunnankantajalla lyhytaikaisessa altistuksessa: [Johnson 2009](https://pubmed.ncbi.nlm.nih.gov/19522650/) ja [Sung 2016](https://pubmed.ncbi.nlm.nih.gov/27481873/). Johnson 2009 tutki kirurgisen kasvosuojan ja N95-maskin toimivuutta infektoituneen potilaan tuottamisen virusten leviämisen estämisessä laboratoriossa. Kumpikin kasvosuojamalli tarjosi petrimaljan kasvualustalle 100 % suojan 5 ysköksen aikana levinneiltä viruksilta. Sung 2016 tutki sekä työntekijöillä että vierailijoilla pakollisten kasvosuojien vaikutusta kantasolusiirteen saaneiden potilaiden alttiuteen saada hengitystieinfektioita. Kasvosuojattoman jakson (2003-2009) tartuntamääriä verrattiin kasvosuojallisen jakson (2010-2014) tartuntamääriin. Infektioiden määrä laski tilastollisesti merkittävästi kasvosuojia käytettäessä. Vertailukohteena käytetyllä toisella sairaalan osastolla ei havaittu muutosta tartuntamäärissä jakson aikana. Kumpikin näistä tutkimuksista rajautui pois STM:n kirjallisuuskatsauksesta.
 
 Mekaanisen suojan lisäksi kasvosuojien käyttö voisi vaikuttaa epidemian leviämiseen myös muiden, esimerkiksi psykologisten, vaikutusten kautta. Maskien laaja käyttö yhteiskunnassa voisi pitää yllä tietoisuutta pandemian vaaroista, ja näin vaikuttaa käyttäytymisen muutosten kautta epidemian kulkuun. Tämän kaltaiset vaikutukset tuskin tulisivat näkyviin kirjallisuuskatsauksessa käsiteltyjen tutkimusten tutkimusotteella, sillä laajat muutokset käyttäytymisessä todennäköisesti olisivat vaikuttaneet sekä tutkimus- että kontrolliryhmiin.
 
@@ -109,8 +109,8 @@ Mekaanisen suojan lisäksi kasvosuojien käyttö voisi vaikuttaa epidemian levi�
 
 Suomessa vallitsevan COVID-19 -tilanteen kannalta oleellinen kysymys on, onko kasvosuojien laajasta käytöstä hyötyä tartuntojen estämisessä lyhytaikaisessa altistuksessa. Tällaisia altistustilanteita ovat esimerkiksi kaupassa käynti ja julkisen liikenteen käyttö. Tutkimukset, joissa selvitetään kasvosuojainten hyötyjä pelkästään suojan käyttäjälle eivät pysty vastaamaan tähän kysymykseen, koska oletettu vaikutusmekanismi on pääasiassa taudinaiheuttajien leviämisen estäminen (source control). Myöskään tutkimukset, joissa altistus on ollut pitkäaikaista, eivät ole vertailukelpoisia. Tartunnan tarvitsee tapahtua vain kerran, ja pitkäaikaisen altistuksen aikana todennäköisyys, että suojavälineet eivät petä ainakin kerran, laskee ajan kuluessa. Viettämällä useita vuorokausia lähikontaktissa infektoituneen henkilön kanssa (koti tai jaettu pyhiinvaellusteltta) suojauksen pettäminen on odotettavissa esim. ruokailun yhteydessä. Lyhytaikaisessa altistuksessa sitä vastoin maskia voidaan pitää oikeaoppisesti päällä koko altistuksen ajan.
 
-THL:n kirjallisuuskatsaus ei rajauksissa tehtyjen valintojen vuoksi pysty vastaamaan kysymykseen kasvosuojien hyödyistä tartunnan saaneiden ja mahdollisesti oireettomien kantajien käyttämänä. Mukaan valikoituneista kirjallisuuskatsauksista kuitenkin löytyi selkeitä viitteitä kasvosuojien toimivuudesta juuri lyhytaikaisessa altistuksessa sairastuneiden kantajien käyttäminä. 
+STM:n kirjallisuuskatsaus ei rajauksissa tehtyjen valintojen vuoksi pysty vastaamaan kysymykseen kasvosuojien hyödyistä tartunnan saaneiden ja mahdollisesti oireettomien kantajien käyttämänä. Mukaan valikoituneista kirjallisuuskatsauksista kuitenkin löytyi selkeitä viitteitä kasvosuojien toimivuudesta juuri lyhytaikaisessa altistuksessa sairastuneiden kantajien käyttäminä. 
 
-Näin ollen THL:n kirjallisuuskatsauksen keskeinen johtopäätös on harhainen. Selvitykseen otettujen tutkimusten perusteella ei voida todeta, että *"Kodin ulkopuolella käytettävien kasvosuojusten vaikutus pisaravälitteisten hengitystieinfektioiden leviämiseen väestössä on vähäinen tai olematon"*. Katsaukseen valikoituneen kirjallisuuden perusteella oikeampi johtopäätös olisi ollut:
+Näin ollen STM:n kirjallisuuskatsauksen keskeinen johtopäätös on harhainen. Selvitykseen otettujen tutkimusten perusteella ei voida todeta, että *"Kodin ulkopuolella käytettävien kasvosuojusten vaikutus pisaravälitteisten hengitystieinfektioiden leviämiseen väestössä on vähäinen tai olematon"*. Katsaukseen valikoituneen kirjallisuuden perusteella oikeampi johtopäätös olisi ollut:
 
 **"Kodin ulkopuolella käytettävien kasvosuojusten vaikutus kasvosuojuksen käyttäjän alttiuteen saada pisaravälitteisten hengitystieinfektio on vähäinen tai olematon. Jos toimenpiteen vaikutuksista ei ole näyttöä, ei se välttämättä merkitse, että toimenpide ei ole vaikuttava. Kasvosuojusten vaikuttavuutta on tutkittu tuhansilla ihmisillä, mutta katsaukseen valikoituneessa kirjallisuudessa ei tutkittu kasvosuojien tehoa tartuntojen ehkäisyssä taudin kantajan käyttämänä, erityisesti lyhytaikaisessa altistuksessa. Tehtyjen rajausten vuoksi selväkään suojavaikutus ei välttämättä ole tullut nyt arvioiduissa tutkimuksissa esiin."**
