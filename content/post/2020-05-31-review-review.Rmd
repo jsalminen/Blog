@@ -118,7 +118,7 @@ Näin ollen STM:n kirjallisuuskatsauksen keskeinen johtopäätös on harhainen. 
 
 **"Kodin ulkopuolella käytettävien kasvosuojusten vaikutus kasvosuojuksen käyttäjän alttiuteen saada pisaravälitteisten hengitystieinfektio on vähäinen tai olematon. Jos toimenpiteen vaikutuksista ei ole näyttöä, ei se välttämättä merkitse, että toimenpide ei ole vaikuttava. Kasvosuojusten vaikuttavuutta on tutkittu tuhansilla ihmisillä, mutta katsaukseen valikoituneessa kirjallisuudessa ei tutkittu kasvosuojien tehoa tartuntojen ehkäisyssä taudin kantajan käyttämänä, erityisesti lyhytaikaisessa altistuksessa. Tehtyjen rajausten vuoksi selväkään suojavaikutus ei välttämättä ole tullut nyt arvioiduissa tutkimuksissa esiin."**
 
-PÄIVITYS 1.6.2020: Pyysin kirjallisuuskatsauksen tekijöiltä kommenttia. Emeritaprofessori Marjukka Mäkelä vastasi seuraavasti:
+**PÄIVITYS 1.6.2020:** Pyysin kirjallisuuskatsauksen tekijöiltä kommenttia. Emeritaprofessori Marjukka Mäkelä vastasi seuraavasti:
 
 *"Kiitos mahdollisuudesta kommentoida.*
  
@@ -132,11 +132,9 @@ PÄIVITYS 1.6.2020: Pyysin kirjallisuuskatsauksen tekijöiltä kommenttia. Emeri
 *Marjukka Mäkelä*  
 *Emeritaprofessori, LKT, M.Sc.(ClinEpi)"*
 
-PÄIVITYS 2.6.2020: Lisätty linkki Pauli Alinin STM:n kasvosuojaselvityksen arvioon.
+**PÄIVITYS 2.6.2020:** Lisätty linkki Pauli Alinin STM:n kasvosuojaselvityksen arvioon.
 
-PÄIVITYS 2.6.2020: 
-
-Selvennän argumenttiani kuvalla. Kasvosuojainta voi käyttää joko terve henkilö suojellakseen itseään, tai sairastunut henkilö suojellakseen muita. Altistuksen kesto voi olla lyhytaikainen tai pitkäaikainen. Lyhytaikaista altistus on kaupassa käynti, matka julkisella kulkuneuvolla, tai vierailu sairaalan osastolla. Esimerkkejä pitkäaikaisesta altistumisesta ovat taas samassa huoneistossa asuminen tai jaetussa teltassa nukkuminen. 
+**PÄIVITYS 2.6.2020:** Selvennän argumenttiani kuvalla. Kasvosuojainta voi käyttää joko terve henkilö suojellakseen itseään, tai sairastunut henkilö suojellakseen muita. Altistuksen kesto voi olla lyhytaikainen tai pitkäaikainen. Lyhytaikaista altistus on kaupassa käynti, matka julkisella kulkuneuvolla, tai vierailu sairaalan osastolla. Esimerkkejä pitkäaikaisesta altistumisesta ovat taas samassa huoneistossa asuminen tai jaetussa teltassa nukkuminen. 
 
 Käyttötapauksista ja -tilanteista voidaan muodostaa oheinen matriisi.
 
