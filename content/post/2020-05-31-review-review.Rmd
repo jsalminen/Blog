@@ -29,7 +29,7 @@ results <- results %>%
 ```
 
 
-STM julkaisi [selvityksen väestön kasvosuojusten käytöstä COVID-19-epidemian leviämisen ehkäisyssä](http://urn.fi/URN:ISBN:978-952-00-5421-2). Osana selvitystä Summaryx Oy toteutti järjestelmällisen kirjallisuuskatsauksen, jonka johtopäätösten mukaan:
+STM julkaisi [selvityksen väestön kasvosuojusten käytöstä COVID-19-epidemian leviämisen ehkäisyssä](http://urn.fi/URN:ISBN:978-952-00-5421-2). Selvitystä kokonaisuutena on arvioinut mm. Pauli Alin [täällä](https://sdrstrm.blogspot.com/2020/05/stmn-kasvosuojaselvityksen-arvio.html). Osana selvitystä Summaryx Oy toteutti järjestelmällisen kirjallisuuskatsauksen, jonka johtopäätösten mukaan:
 
 *"Kodin ulkopuolella käytettävien kasvosuojusten vaikutus pisaravälitteisten hengitystieinfektioiden leviämiseen väestössä on vähäinen tai olematon."* 
 
@@ -78,10 +78,13 @@ result_summary <- results %>%
   drop_na() %>% 
   arrange(desc(Included), desc(Source.control))
 
+plot_palette <- c("#F8CBAD", "#B4C7E7")
+
 ggplot(result_summary, aes(Source.control, Count, fill = Included)) + 
   geom_bar(stat = "identity", position = "dodge") + 
   xlab("Source control investigated") + 
-  scale_fill_discrete(name = "Included in review")
+  scale_fill_manual(name = "Included in review",
+                      values = plot_palette)
 
 knitr::kable(result_summary)
 ```
@@ -129,4 +132,14 @@ PÄIVITYS 1.6.2020: Pyysin kirjallisuuskatsauksen tekijöiltä kommenttia. Emeri
 *Marjukka Mäkelä*  
 *Emeritaprofessori, LKT, M.Sc.(ClinEpi)"*
 
+PÄIVITYS 2.6.2020: Lisätty linkki Pauli Alinin STM:n kasvosuojaselvityksen arvioon.
 
+PÄIVITYS 2.6.2020: 
+
+Selvennän argumenttiani kuvalla. Kasvosuojainta voi käyttää joko terve henkilö suojellakseen itseään, tai sairastunut henkilö suojellakseen muita. Altistuksen kesto voi olla lyhytaikainen tai pitkäaikainen. Lyhytaikaista altistus on kaupassa käynti, matka julkisella kulkuneuvolla, tai vierailu sairaalan osastolla. Esimerkkejä pitkäaikaisesta altistumisesta ovat taas samassa huoneistossa asuminen tai jaetussa teltassa nukkuminen. 
+
+Käyttötapauksista ja -tilanteista voidaan muodostaa oheinen matriisi.
+
+<img src="/media/exposure_vs_user.png" width="75%"/>
+
+STM:n kirjallisuuskatsaukseen valikoituneen aineiston perusteella voidaan sanoa, että kasvosuojain ei merkittävästi estä tartuntoja, kun suojainta käyttää terve henkilö tai altistuminen on pitkäaikaista. Olen samaa mieltä siitä, että näiden tilanteiden osalta selvä suojavaikutus olisi luultavasti tullut tutkimuksissa esiin. Mielestäni tuloksia ei kuitenkaan voida yleistää koskemaan myös tilanteita, joissa kasvosuojainta käyttää sairastunut henkilö ja altistuminen on lyhytaikaista. Analysoidussa kirjallisuudessa on tällä kohtaa aukko, mutta STM:n kirjallisuuskatsauksessa viitatuista muista kirjallisuuskatsauksista on löydettävissä viitteitä hyödyn mahdollisuuteen. Pitäisinkin STM:n kirjallisuuskatsauksen suurimpana merittiinä tämän tutkimusaukon paljastamista.
