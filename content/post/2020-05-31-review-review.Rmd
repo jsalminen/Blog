@@ -134,7 +134,7 @@ Näin ollen STM:n kirjallisuuskatsauksen keskeinen johtopäätös on harhainen. 
 
 **PÄIVITYS 2.6.2020:** Lisätty linkki Pauli Alinin STM:n kasvosuojaselvityksen arvioon.
 
-**PÄIVITYS 2.6.2020:** Selvennän argumenttiani kuvalla. Kasvosuojainta voi käyttää joko terve henkilö suojellakseen itseään, tai sairastunut henkilö suojellakseen muita. Altistuksen kesto voi olla lyhytaikainen tai pitkäaikainen. Lyhytaikaista altistus on kaupassa käynti, matka julkisella kulkuneuvolla, tai vierailu sairaalan osastolla. Esimerkkejä pitkäaikaisesta altistumisesta ovat taas samassa huoneistossa asuminen tai jaetussa teltassa nukkuminen. 
+**PÄIVITYS 2.6.2020:** Selvennän argumenttiani kuvalla. Kasvosuojainta voi käyttää joko terve henkilö suojellakseen itseään, tai sairastunut henkilö suojellakseen muita. Altistuksen kesto voi olla lyhytaikainen tai pitkäaikainen. Lyhytaikaista altistus on kaupassa käynti, matka julkisella kulkuneuvolla, tai vierailu sairaalan osastolla. Esimerkkejä pitkäaikaisesta altistumisesta taas ovat samassa huoneistossa asuminen tai jaetussa teltassa nukkuminen. 
 
 Käyttötapauksista ja -tilanteista voidaan muodostaa oheinen matriisi.
 
