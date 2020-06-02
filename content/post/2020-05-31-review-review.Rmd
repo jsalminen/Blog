@@ -29,7 +29,7 @@ results <- results %>%
 ```
 
 
-STM julkaisi [selvityksen väestön kasvosuojusten käytöstä COVID-19-epidemian leviämisen ehkäisyssä](http://urn.fi/URN:ISBN:978-952-00-5421-2). Selvitystä kokonaisuutena on arvioinut mm. Pauli Alin [täällä](https://sdrstrm.blogspot.com/2020/05/stmn-kasvosuojaselvityksen-arvio.html). Osana selvitystä Summaryx Oy toteutti järjestelmällisen kirjallisuuskatsauksen, jonka johtopäätösten mukaan:
+STM julkaisi [selvityksen väestön kasvosuojusten käytöstä COVID-19-epidemian leviämisen ehkäisyssä](http://urn.fi/URN:ISBN:978-952-00-5421-2). Selvitystä kokonaisuutena on arvioinut mm. Pauli Alin: [STM:n kasvosuojaselvityksen arvio](https://sdrstrm.blogspot.com/2020/05/stmn-kasvosuojaselvityksen-arvio.html). Osana selvitystä Summaryx Oy toteutti järjestelmällisen kirjallisuuskatsauksen, jonka johtopäätösten mukaan:
 
 *"Kodin ulkopuolella käytettävien kasvosuojusten vaikutus pisaravälitteisten hengitystieinfektioiden leviämiseen väestössä on vähäinen tai olematon."* 
 
